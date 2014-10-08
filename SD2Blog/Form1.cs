@@ -176,9 +176,28 @@ namespace SD2Blog
             }
         }
 
+        private void loadTemplateList()
+        {
+            string[] files = 
+                System.IO.Directory.GetFiles(
+                "./template", "*", System.IO.SearchOption.TopDirectoryOnly);
+
+            string expression = @"template\\(.*)";
+            Regex reg = new Regex(expression);
+            for (int i = 0; i < files.Length; i++)
+            {
+                Match match = reg.Match(files[i]);
+                files[i] = match.Groups[1].Value;
+            }
+            cmbTemplateList.Items.AddRange(files);
+
+            cmbTemplateList.Text = cmbTemplateList.Items[0].ToString();
+        }
+
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            StreamWriter writer = new StreamWriter("./template.txt", false, Encoding.GetEncoding("UTF-8"));
+            var fileName = cmbTemplateList.Text.ToString();
+            StreamWriter writer = new StreamWriter("./template/" + fileName, false, Encoding.GetEncoding("UTF-8"));
 
             writer.WriteLine(textBoxTemplate.Text);
 
@@ -187,11 +206,8 @@ namespace SD2Blog
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            StreamReader reader = new StreamReader("./template.txt", Encoding.GetEncoding("UTF-8"));
-
-            textBoxTemplate.Text = reader.ReadToEnd();
-
-            reader.Close();
+            
+            loadTemplateList();
 
 
             SQLiteHelper sql = new SQLiteHelper();
@@ -231,6 +247,16 @@ namespace SD2Blog
             sql.deleteDictionary();
             sql.saveDictionary(datas);
 
+        }
+
+        private void cmbTemplateList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var fileName = cmbTemplateList.Text.ToString();
+            StreamReader reader = new StreamReader("./template/" + fileName, Encoding.GetEncoding("UTF-8"));
+
+            textBoxTemplate.Text = reader.ReadToEnd();
+
+            reader.Close();
         }
     }
 }

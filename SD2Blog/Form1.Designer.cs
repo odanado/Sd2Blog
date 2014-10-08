@@ -40,11 +40,12 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.textBoxTemplate = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonSaveDictionary = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.japaneseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.englishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbTemplateList = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -140,6 +141,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cmbTemplateList);
             this.tabPage2.Controls.Add(this.buttonSave);
             this.tabPage2.Controls.Add(this.textBoxTemplate);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -162,11 +164,11 @@
             // 
             // textBoxTemplate
             // 
-            this.textBoxTemplate.Location = new System.Drawing.Point(7, 7);
+            this.textBoxTemplate.Location = new System.Drawing.Point(7, 33);
             this.textBoxTemplate.Multiline = true;
             this.textBoxTemplate.Name = "textBoxTemplate";
             this.textBoxTemplate.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxTemplate.Size = new System.Drawing.Size(415, 289);
+            this.textBoxTemplate.Size = new System.Drawing.Size(415, 263);
             this.textBoxTemplate.TabIndex = 0;
             this.textBoxTemplate.WordWrap = false;
             this.textBoxTemplate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxTemplate_KeyDown);
@@ -183,6 +185,16 @@
             this.tabPage3.Text = "辞書";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // buttonSaveDictionary
+            // 
+            this.buttonSaveDictionary.Location = new System.Drawing.Point(346, 302);
+            this.buttonSaveDictionary.Name = "buttonSaveDictionary";
+            this.buttonSaveDictionary.Size = new System.Drawing.Size(75, 23);
+            this.buttonSaveDictionary.TabIndex = 1;
+            this.buttonSaveDictionary.Text = "保存";
+            this.buttonSaveDictionary.UseVisualStyleBackColor = true;
+            this.buttonSaveDictionary.Click += new System.EventHandler(this.buttonSaveDictionary_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -195,16 +207,6 @@
             this.dataGridView1.RowTemplate.Height = 21;
             this.dataGridView1.Size = new System.Drawing.Size(415, 289);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // buttonSaveDictionary
-            // 
-            this.buttonSaveDictionary.Location = new System.Drawing.Point(346, 302);
-            this.buttonSaveDictionary.Name = "buttonSaveDictionary";
-            this.buttonSaveDictionary.Size = new System.Drawing.Size(75, 23);
-            this.buttonSaveDictionary.TabIndex = 1;
-            this.buttonSaveDictionary.Text = "保存";
-            this.buttonSaveDictionary.UseVisualStyleBackColor = true;
-            this.buttonSaveDictionary.Click += new System.EventHandler(this.buttonSaveDictionary_Click);
             // 
             // key
             // 
@@ -221,6 +223,16 @@
             // 
             this.englishName.HeaderText = "英名";
             this.englishName.Name = "englishName";
+            // 
+            // cmbTemplateList
+            // 
+            this.cmbTemplateList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTemplateList.FormattingEnabled = true;
+            this.cmbTemplateList.Location = new System.Drawing.Point(7, 7);
+            this.cmbTemplateList.Name = "cmbTemplateList";
+            this.cmbTemplateList.Size = new System.Drawing.Size(121, 20);
+            this.cmbTemplateList.TabIndex = 2;
+            this.cmbTemplateList.SelectedIndexChanged += new System.EventHandler(this.cmbTemplateList_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -264,6 +276,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn key;
         private System.Windows.Forms.DataGridViewTextBoxColumn japaneseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn englishName;
+        private System.Windows.Forms.ComboBox cmbTemplateList;
     }
 }
 
