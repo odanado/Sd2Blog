@@ -46,12 +46,12 @@ namespace SD2Blog
             Shiny = false;
             Happiness = 0;
 
-            EVs = new Dictionary<string, int>() 
+            IVs = new Dictionary<string, int>() 
             {
                 {"HP", 31 }, {"Atk", 31 }, {"Def", 31 },
                 {"SpA", 31 }, {"SpD", 31 }, {"Spe", 31 }
             };
-            IVs = new Dictionary<string, int>()
+            EVs = new Dictionary<string, int>()
             {
                 {"HP", 0 }, {"Atk", 0 }, {"Def", 0 },
                 {"SpA", 0 }, {"SpD", 0 }, {"Spe", 0 }
