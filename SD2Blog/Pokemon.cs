@@ -103,7 +103,7 @@ namespace SD2Blog
                     Stats[stat] = BaseStats[stat] * 2 + IVs[stat] + EVs[stat] / 4;
                     Stats[stat] = Stats[stat] * Level / 100;
                     Stats[stat] = Stats[stat] + 5;
-                    Stats[stat] = Convert.ToInt32(Stats[stat] * natureMod[stat]);
+                    Stats[stat] = Convert.ToInt32(Math.Floor(Stats[stat] * natureMod[stat]));
                 }
             }
         }
