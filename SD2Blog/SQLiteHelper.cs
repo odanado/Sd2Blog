@@ -124,6 +124,28 @@ namespace SD2Blog
             return datas;
         }
 
+        public int getNum(string name)
+        {
+            int num = -1;
+            string key = Util.toKey(name);
+            using (SQLiteConnection cn = new SQLiteConnection(dbConnectionName))
+            {
+                cn.Open();
+                SQLiteCommand cmd = cn.CreateCommand();
+                cmd.CommandText = "SELECT * FROM pokedex where key = '" + key + "';";
+
+                using (SQLiteDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        num = Convert.ToInt32(reader["num"]);
+                    }
+                }
+            }
+
+            return num;
+        }
+
         public void deleteDictionary()
         {
             using (SQLiteConnection cn = new SQLiteConnection(dbConnectionName))

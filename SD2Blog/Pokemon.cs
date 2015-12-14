@@ -21,6 +21,7 @@ namespace SD2Blog
         public string Gender { get; set; }
         public int Happiness { get; set; }
         public string NickName { get; set; }
+        public int Num { get; set; }
 
 
         public Dictionary<string, int> EVs { get; set; }
@@ -84,6 +85,7 @@ namespace SD2Blog
 
             SQLiteHelper sql = new SQLiteHelper();
             BaseStats = sql.getBaseStats(Key);
+            Num = sql.getNum(Key);
 
             Dictionary<string, double> natureMod = sql.getNatureMod(Nature);
             string[] statsName = { "HP", "Atk", "Def", "SpA", "SpD", "Spe" };

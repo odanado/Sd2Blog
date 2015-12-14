@@ -41,7 +41,7 @@ namespace SD2Blog
             string template = textBoxTemplate.Text;
 
             string[] member = {"Id", "Name","Key", "Item", "Ability","Move", "Level",
-                                  "Nature" ,"Stats","BaseStats", "EVs", "IVs", "NickName" };
+                                  "Nature" ,"Stats","BaseStats", "EVs", "IVs", "NickName", "Num" };
 
             for (int i = 0; i < pokemon.Length; i++)
             {
@@ -141,6 +141,10 @@ namespace SD2Blog
                     else if (s == "NickName")
                     {
                         template = template.Replace(pattern, langConvert(pokemon[i].NickName));
+                    }
+                    else if (s == "Num")
+                    {
+                        template = template.Replace(pattern, pokemon[i].Num.ToString());
                     }
 
                 }
